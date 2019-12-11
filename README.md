@@ -7,19 +7,19 @@ The collection of my answers in go
 * palenPrime - playing with palendrome primes
 * primeFactors - playing with prime factorization
 
-1 fizzbuzz
-2 evenFibonacci
-3 primeFactors
-4 palenProduct
-5 smallestMultiple
-6 sumSquareDifference
-7 10001st Prime
-8 largestProduct
-9 pythagTriplet
-10 sumOfPrimes
-11 largestProductInGrid
-12 highlyDivisibleTriangleNumber
-15 latticePaths
+1. fizzbuzz
+2. evenFibonacci
+3. primeFactors
+4. palenProduct
+5. smallestMultiple
+6. sumSquareDifference
+7. 10001st Prime
+8. largestProduct
+9. pythagTriplet
+10. sumOfPrimes
+11. largestProductInGrid
+12. highlyDivisibleTriangleNumber
+15. latticePaths
 
 ## instructions
 * clone
