@@ -1,12 +1,12 @@
 # projectEuler
-The collection of my answers in go
+The collection of my answers in 'go'
 
 * common - a set of common utilities that I have so I don't have to keep
   recreating them
 * eqGen - just playing around
 * palenPrime - playing with palendrome primes
-* primeFactors - playing with prime factorization
 
+## Projects
 1. fizzbuzz
 2. evenFibonacci
 3. primeFactors
@@ -19,12 +19,15 @@ The collection of my answers in go
 10. sumOfPrimes
 11. largestProductInGrid
 12. highlyDivisibleTriangleNumber
+13. -TBD-
+14. -TBD-
 15. latticePaths
 
-## instructions
-* clone
+## Instructions
+* set up go
+* clone this repo
 * go to base directory
 * go test ./...
-* go to directory you want
+* cd to directory you want
 * go build
 * run the example
