@@ -4,7 +4,7 @@ The collection of my answers in 'go'
 * common - a set of common utilities that I have so I don't have to keep
   recreating them
 * eqGen - just playing around
-* palenPrime - playing with palendrome primes
+* palenPrime - playing with palendrome primes and emirp primes
 
 ## Projects
 1. fizzbuzz
