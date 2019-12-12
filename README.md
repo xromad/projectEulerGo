@@ -19,7 +19,7 @@ The collection of my answers in 'go'
 10. sumOfPrimes
 11. largestProductInGrid
 12. highlyDivisibleTriangleNumber
-13. -TBD-
+13. largeSum
 14. -TBD-
 15. latticePaths
 
