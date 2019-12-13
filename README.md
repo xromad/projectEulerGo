@@ -20,7 +20,7 @@ The collection of my answers in 'go'
 11. largestProductInGrid
 12. highlyDivisibleTriangleNumber
 13. largeSum
-14. -TBD-
+14. longestCollatzSequence
 15. latticePaths
 
 ## Instructions
