@@ -1,12 +1,10 @@
 # projectEuler
-The collection of my answers in 'go'
-
-* common - a set of common utilities that I have so I don't have to keep
-  recreating them
-* eqGen - just playing around
-* palenPrime - playing with palendrome primes and emirp primes
+The collection of my answers to Project Euler https://projecteuler.net/archives in 'go' aka 'golang'
 
 ## Projects
+* common - a set of common utilities so I don't have to keep recreating them
+* eqGen - just playing around
+* palenPrime - playing with palendrome primes and emirp primes
 1. fizzbuzz
 2. evenFibonacci
 3. primeFactors
