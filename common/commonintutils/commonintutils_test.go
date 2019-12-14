@@ -5,6 +5,27 @@ import (
 	"testing"
 )
 
+func TestF64toa(t *testing.T) {
+	testCases := []struct {
+		num  float64
+		want string
+	}{
+		//where
+		{0, "0"},
+		{12, "12"},
+		{123, "123"},
+		{123456789, "123456789"},
+	}
+	for _, c := range testCases {
+		//when
+		got := F64toa(c.num)
+		//then
+		if got != c.want {
+			t.Errorf("F64toa(%v) == %v want %v", c.num, got, c.want)
+		}
+	}
+}
+
 func TestProductIntSlice(t *testing.T) {
 	testCases := []struct {
 		intSlice []int

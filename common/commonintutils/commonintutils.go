@@ -63,6 +63,15 @@ func IntSliceContains(bSlice []int, v int) bool {
 }
 
 /*
+ * float64Utils
+ */
+
+// F64toa - convert float64 number to string
+func F64toa(num float64) string {
+	return fmt.Sprintf("%.f", num)
+}
+
+/*
  * int64 utils
  */
 

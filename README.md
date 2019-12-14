@@ -22,6 +22,7 @@ The collection of my answers in 'go'
 13. largeSum
 14. longestCollatzSequence
 15. latticePaths
+16. powerDigitSum
 
 ## Instructions
 * set up go
