@@ -3,6 +3,10 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 
 ## Projects
 * common - a set of common utilities so I don't have to keep recreating them
+ * commonIntUtils - integer based utilities
+ * commonStringUtils - string based utilities
+ * num2words - convert numbers to words
+ * primesiev - an implementation of the Siev of Eratosthenes
 * eqGen - just playing around
 * palenPrime - playing with palendrome primes and emirp primes
 1. fizzbuzz
@@ -21,6 +25,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 14. longestCollatzSequence
 15. latticePaths
 16. powerDigitSum
+17. numberLetterCounts
 
 ## Instructions
 * set up go
