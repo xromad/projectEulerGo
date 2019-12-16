@@ -3,10 +3,10 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 
 ## Projects
 * common - a set of common utilities so I don't have to keep recreating them
- * commonIntUtils - integer based utilities
- * commonStringUtils - string based utilities
- * num2words - convert numbers to words
- * primesiev - an implementation of the Siev of Eratosthenes
+  * commonIntUtils - integer based utilities
+  * commonStringUtils - string based utilities
+  * num2words - convert numbers to words
+  * primesiev - an implementation of the Siev of Eratosthenes
 * eqGen - just playing around
 * palenPrime - playing with palendrome primes and emirp primes
 1. fizzbuzz
