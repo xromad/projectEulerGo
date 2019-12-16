@@ -3,14 +3,14 @@ package num2words
 
 //NOTE: this only does up to thousands at this time
 //NOTE: this only does positives at this time
-//TODO: use recursion and a builder to make is much better
+//TODO: use recursion and a builder to make this much better
 
 import "math"
 
 // Convert - convert an int into a set of words
 func Convert(n int) string {
 	switch {
-	case n < 10:
+	case n > 0 && n < 10:
 		return ones(n)
 	case n >= 10 && n < 100:
 		return tens(n)

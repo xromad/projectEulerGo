@@ -8,7 +8,7 @@ What is the sum of the digits of the number 2^1000?
 import (
 	"fmt"
 	"math"
-	commonintutils "projectEuler/common/commonIntUtils"
+	"projectEuler/common/commonintutils"
 	"strconv"
 )
 

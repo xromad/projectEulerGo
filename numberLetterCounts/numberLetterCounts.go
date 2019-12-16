@@ -33,7 +33,6 @@ func processNums(max int) (words string, count int) {
 		words = words + " " + num2words.Convert(num)
 		words = strings.TrimSpace(words)
 	}
-	//TODO: strip spaces inside
 	packedWords := strings.Replace(words, " ", "", -1)
 	count = len(packedWords)
 	return

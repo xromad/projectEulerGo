@@ -9,7 +9,6 @@ func TestConvert(t *testing.T) {
 		num  int
 		want string
 	}{
-		{0, "zero"},
 		{1, "one"},
 		{12, "twelve"},
 		{123, "one hundred twenty three"},

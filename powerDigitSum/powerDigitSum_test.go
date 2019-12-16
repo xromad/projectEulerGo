@@ -1,7 +1,7 @@
 package main
 
 import (
-	commonintutils "projectEuler/common/commonIntUtils"
+	"projectEuler/common/commonintutils"
 	"testing"
 )
 
