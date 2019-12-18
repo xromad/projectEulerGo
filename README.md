@@ -1,4 +1,4 @@
-# projectEuler
+# Project Euler - in Go
 The collection of my answers to Project Euler https://projecteuler.net/archives in 'go' aka 'golang'
 
 ## Projects
@@ -9,6 +9,8 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
   * primesiev - an implementation of the Siev of Eratosthenes
 * eqGen - just playing around
 * palenPrime - playing with palendrome primes and emirp primes
+
+## Project Euler Projects
 1. fizzbuzz
 2. evenFibonacci
 3. primeFactors
@@ -26,12 +28,13 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 15. latticePaths
 16. powerDigitSum
 17. numberLetterCounts
+18. maximumPathSumI
 
 ## Instructions
 * set up go
-* clone this repo
-* go to base directory
-* go test ./...
+* clone this repo to your ${GOPATH}/src directory
+* go to base repo directory
+* ```go test ./...```
 * cd to directory you want
-* go build
+* ```go build``
 * run the example

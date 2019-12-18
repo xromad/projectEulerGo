@@ -5,13 +5,17 @@ import (
 )
 
 func TestConvert(t *testing.T) {
+	//given
 	testCases := []struct {
 		num  int
 		want string
 	}{
+		//where
 		{1, "one"},
 		{12, "twelve"},
+		{113, "one hundred thirteen"},
 		{123, "one hundred twenty three"},
+		{1000, "one thousand"},
 		{1230, "one thousand two hundred thirty"},
 		{1234, "one thousand two hundred thirty four"},
 		// {12345, "twelve thousand three hundred fourty five"},
@@ -24,7 +28,9 @@ func TestConvert(t *testing.T) {
 	}
 
 	for _, c := range testCases {
+		//when
 		got := Convert(c.num)
+		//then
 		if got != c.want {
 			t.Errorf("Convert(%v) == %s, want %s", c.num, got, c.want)
 		}
