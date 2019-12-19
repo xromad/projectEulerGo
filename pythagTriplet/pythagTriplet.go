@@ -1,9 +1,9 @@
 package main
 
 import (
-	"projectEuler/common/commonintutils"
 	"fmt"
 	"math"
+	"projectEuler/common/commonintutils"
 )
 
 /*
@@ -69,13 +69,13 @@ func findNextPythagTriplet(aIn int64, bIn int64, max int64) []int64 {
 	bStart := bIn
 	for a := aIn; !stop && a <= max; a++ {
 		for b := bStart; !stop && b <= max; b++ {
-      if b > a {
-        csq := math.Pow(float64(a), 2) + math.Pow(float64(b), 2)
-        f := math.Sqrt(csq)
-        if f == math.Floor(f) {
-          return []int64{a, b, int64(f)}
-        }
-      }
+			if b > a {
+				csq := math.Pow(float64(a), 2) + math.Pow(float64(b), 2)
+				f := math.Sqrt(csq)
+				if f == math.Floor(f) {
+					return []int64{a, b, int64(f)}
+				}
+			}
 		}
 		bStart = 1
 	}

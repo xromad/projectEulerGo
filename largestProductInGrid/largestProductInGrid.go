@@ -31,8 +31,8 @@ What is the greatest product of four adjacent numbers in the same direction
 */
 
 import (
-	"projectEuler/common/commonintutils"
 	"fmt"
+	"projectEuler/common/commonintutils"
 )
 
 // Cell - a representation of a location in a grid

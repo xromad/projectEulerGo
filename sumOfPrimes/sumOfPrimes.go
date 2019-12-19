@@ -6,8 +6,8 @@ Find the sum of all the primes below two million.
 */
 
 import (
-	"projectEuler/common/primesiev"
 	"fmt"
+	"projectEuler/common/primesiev"
 )
 
 func main() {

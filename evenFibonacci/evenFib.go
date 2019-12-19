@@ -9,8 +9,8 @@ package main
  */
 
 import (
-	"projectEuler/common/commonintutils"
 	"fmt"
+	"projectEuler/common/commonintutils"
 )
 
 func main() {

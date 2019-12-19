@@ -2,8 +2,8 @@ package main
 
 import (
 	"projectEuler/common/commonintutils"
+	"reflect"
 	"testing"
-  "reflect"
 )
 
 func TestFindEmirps(t *testing.T) {

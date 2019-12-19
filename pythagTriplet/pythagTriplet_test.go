@@ -30,7 +30,7 @@ func TestGetPythagTripletEqN(t *testing.T) {
 		target int64
 		want   []int64
 	}{
-		{5, []int64{0,0,0}},
+		{5, []int64{0, 0, 0}},
 		{12, []int64{3, 4, 5}}, //provided example
 		{30, []int64{5, 12, 13}},
 	}

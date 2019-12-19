@@ -8,9 +8,9 @@ package main
  */
 
 import (
+	"fmt"
 	"projectEuler/common/commonstringutils"
 	"projectEuler/common/primesiev"
-	"fmt"
 	"strconv"
 )
 
