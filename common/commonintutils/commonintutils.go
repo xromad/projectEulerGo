@@ -39,7 +39,7 @@ func SumIntSlice(nums []int) (sum int) {
 	return
 }
 
-// IntSliceEquals - tests to see if two int64 Slices are equal
+// IntSliceEquals - tests to see if two int Slices are equal
 func IntSliceEquals(aSlice []int, bSlice []int) bool {
 	if len(aSlice) != len(bSlice) {
 		return false
@@ -52,7 +52,7 @@ func IntSliceEquals(aSlice []int, bSlice []int) bool {
 	return true
 }
 
-// IntSliceContains - tests to see if the int64 slice contains the value
+// IntSliceContains - tests to see if the int slice contains the value
 func IntSliceContains(bSlice []int, v int) bool {
 	for _, c := range bSlice {
 		if c == v {
@@ -63,7 +63,34 @@ func IntSliceContains(bSlice []int, v int) bool {
 }
 
 /*
- * float64Utils
+ * uint Utils
+ */
+
+// UIntSliceEquals - tests to see if two uint Slices are equal
+func UIntSliceEquals(aSlice []uint, bSlice []uint) bool {
+	if len(aSlice) != len(bSlice) {
+		return false
+	}
+	for _, v := range aSlice {
+		if !UIntSliceContains(bSlice, v) {
+			return false
+		}
+	}
+	return true
+}
+
+// UIntSliceContains - tests to see if the int slice contains the value
+func UIntSliceContains(bSlice []uint, v uint) bool {
+	for _, c := range bSlice {
+		if c == v {
+			return true
+		}
+	}
+	return false
+}
+
+/*
+ * float64 Utils
  */
 
 // F64toa - convert float64 number to string

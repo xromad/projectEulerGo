@@ -137,6 +137,27 @@ func TestIntSliceContains(t *testing.T) {
 	}
 }
 
+func TestUIntSliceContains(t *testing.T) {
+	testCases := []struct {
+		sliceA []uint
+		s      uint
+		want   bool
+	}{
+		{[]uint{}, 1, false},
+		{[]uint{1}, 1, true},
+		{[]uint{1}, 2, false},
+		{[]uint{1, 2}, 1, true},
+		{[]uint{1, 2}, 2, true},
+	}
+
+	for _, c := range testCases {
+		got := UIntSliceContains(c.sliceA, c.s)
+		if got != c.want {
+			t.Errorf("IntSliceContains(%v, %v) == %v, want %v", c.sliceA, c.s, got, c.want)
+		}
+	}
+}
+
 func TestInt64SliceContains(t *testing.T) {
 	testCases := []struct {
 		sliceA []int64
@@ -154,6 +175,32 @@ func TestInt64SliceContains(t *testing.T) {
 		got := Int64SliceContains(c.sliceA, c.s)
 		if got != c.want {
 			t.Errorf("Int64SliceContains(%v, %v) == %v, want %v", c.sliceA, c.s, got, c.want)
+		}
+	}
+}
+
+func TestUIntSliceEquals(t *testing.T) {
+	testCases := []struct {
+		sliceA []uint
+		sliceB []uint
+		want   bool
+	}{
+		{[]uint{}, []uint{}, true},
+		{[]uint{1}, []uint{}, false},
+		{[]uint{}, []uint{1}, false},
+		{[]uint{1}, []uint{1}, true},
+		{[]uint{1, 2}, []uint{1}, false},
+		{[]uint{1, 2}, []uint{2}, false},
+		{[]uint{1}, []uint{1, 2}, false},
+		{[]uint{2}, []uint{1, 2}, false},
+		{[]uint{1, 2}, []uint{1, 2}, true},
+		{[]uint{1, 2}, []uint{1, 3}, false},
+	}
+
+	for _, c := range testCases {
+		got := UIntSliceEquals(c.sliceA, c.sliceB)
+		if got != c.want {
+			t.Errorf("IntSliceEquals(%v, %v) == %v, want %v", c.sliceA, c.sliceB, got, c.want)
 		}
 	}
 }

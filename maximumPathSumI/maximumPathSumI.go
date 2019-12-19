@@ -42,6 +42,7 @@ import (
 
 type node struct {
 	value uint
+	total uint
 	left  *node
 	right *node
 }
@@ -49,43 +50,49 @@ type node struct {
 func main() {
 	//sample := true //provided sample
 	sample := false
-
-	var tree *node
-	if sample {
-		tree = makeExampleTree()
-	} else {
-		tree = makeRealTree()
-	}
+	tree := makeTree(sample)
 	fmt.Println(fmt.Sprintf("calculating the maximum path sum for the tree starting with node: %v", *tree))
-	maxPath := checkTree(tree)
-	fmt.Println("values for nodes in path:")
-	printNodes(maxPath)
-	maxSum := sumNodes(maxPath)
-	fmt.Println(fmt.Sprintf("maximum path sum: %v", maxSum))
+	fmt.Println(fmt.Sprintf("maximum path sum: %v", checkTree(tree)))
+	fmt.Println(fmt.Sprintf("values for nodes in path: %v", getNodes(tree)))
 }
 
-func printNodes(path []*node) {
-	for _, n := range path {
-		fmt.Println(fmt.Sprintf("node: %v", n.value))
-	}
-}
-
-func checkTree(activeNode *node) []*node {
-	var leftPath, rightPath []*node
-	if activeNode.left != nil {
-		leftPath = checkTree(activeNode.left)
+func getNodes(n *node) (path []uint) {
+	if n.left != nil {
+		if n.left.total > n.right.total {
+			path = append(getNodes(n.left), n.value)
+		} else {
+			path = append(getNodes(n.right), n.value)
+		}
 	} else {
-		return []*node{activeNode}
+		path = append(path, n.value)
+	}
+	return
+}
+
+func checkTree(activeNode *node) uint {
+	if activeNode.total > 0 {
+		return activeNode.total
+	}
+
+	var leftTotal, rightTotal uint
+	if activeNode.left != nil {
+		leftTotal = checkTree(activeNode.left)
+	} else {
+		activeNode.total = activeNode.value
+		return activeNode.total
 	}
 
 	if activeNode.right != nil {
-		rightPath = checkTree(activeNode.right)
+		rightTotal = checkTree(activeNode.right)
 	}
 
-	if sumNodes(leftPath) > sumNodes(rightPath) {
-		return append(leftPath, activeNode)
+	if leftTotal > rightTotal {
+		activeNode.total = leftTotal + activeNode.value
+	} else {
+		activeNode.total = rightTotal + activeNode.value
 	}
-	return append(rightPath, activeNode)
+
+	return activeNode.total
 }
 
 func sumNodes(path []*node) (sum uint) {
@@ -93,6 +100,13 @@ func sumNodes(path []*node) (sum uint) {
 		sum += n.value
 	}
 	return
+}
+
+func makeTree(sample bool) *node {
+	if sample {
+		return makeExampleTree()
+	}
+	return makeRealTree()
 }
 
 func makeExampleTree() (tree *node) { //the provided example
@@ -111,9 +125,9 @@ func buildRow(values []uint, first bool, previous []node) (nodes []node) {
 	right := 1
 	for _, value := range values {
 		if first {
-			nodes = append(nodes, node{value, nil, nil})
+			nodes = append(nodes, node{value, 0, nil, nil})
 		} else {
-			nodes = append(nodes, node{value, &previous[left], &previous[right]})
+			nodes = append(nodes, node{value, 0, &previous[left], &previous[right]})
 			left++
 			right++
 		}
