@@ -95,13 +95,6 @@ func checkTree(activeNode *node) uint {
 	return activeNode.total
 }
 
-func sumNodes(path []*node) (sum uint) {
-	for _, n := range path {
-		sum += n.value
-	}
-	return
-}
-
 func makeTree(sample bool) *node {
 	if sample {
 		return makeExampleTree()
