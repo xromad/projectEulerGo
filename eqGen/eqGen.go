@@ -15,8 +15,8 @@ import (
 )
 
 func main() {
-	var start int = 1
-	var end int = 100
+	start := 1
+	end := 100
 
 	fmt.Println(fmt.Sprintf("Running equation generator for numbers between: %v and %v", start, end))
 	fmt.Println(genEquation(start, end))

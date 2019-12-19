@@ -110,7 +110,7 @@ import (
 )
 
 func main() {
-	var digits int = 10
+	digits := 10
 
 	bigString := sumNumArray(generateNumArray()).Text(10)
 	fmt.Println(fmt.Sprintf("Number: %s", bigString))

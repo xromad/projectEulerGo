@@ -42,7 +42,7 @@ type Cell struct {
 }
 
 func main() {
-	var count int = 4
+	count := 4
 
 	grid := generateGrid()
 
