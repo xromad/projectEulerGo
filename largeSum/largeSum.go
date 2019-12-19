@@ -111,14 +111,10 @@ import (
 
 func main() {
 	var digits int = 10
-	numArray := generateNumArray()
-	fmt.Println(fmt.Sprintf("Array: %v", numArray))
 
-	bigSum := sumNumArray(numArray)
-	bigString := bigSum.Text(10)
+	bigString := sumNumArray(generateNumArray()).Text(10)
 	fmt.Println(fmt.Sprintf("Number: %s", bigString))
-	first10 := bigString[0:min(digits, len(bigString))]
-	fmt.Println(fmt.Sprintf("first10: %s", first10))
+	fmt.Println(fmt.Sprintf("first10: %s", bigString[0:min(digits, len(bigString))]))
 }
 
 func min(a, b int) int {

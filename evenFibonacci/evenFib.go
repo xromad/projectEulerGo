@@ -17,12 +17,8 @@ func main() {
 	var maxValue int64 = 4000000
 	fmt.Println(fmt.Sprintf("Finding sum of even Fibonacci below maxValue = %v", maxValue))
 
-	//generate Fibonacci sequence
-	fibTerms := genSequence(maxValue)
-	fmt.Println(fmt.Sprintf("Fibonacci terms: %v", fibTerms))
-
 	//get evens
-	evenTerms := getEvens(fibTerms)
+	evenTerms := getEvens(genSequence(maxValue))
 	fmt.Println(fmt.Sprintf("even Fibonacci terms: %v", evenTerms))
 
 	//sum evens

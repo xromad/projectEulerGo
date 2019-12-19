@@ -36,5 +36,5 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 * go to base repo directory
 * ```go test ./...```
 * cd to directory you want
-* ```go build``
+* ```go build```
 * run the example
