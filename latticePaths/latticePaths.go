@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
-	//var gridSize int = 1 //1X1 = 2 paths
-	//var gridSize int = 2 //2X2 = 6 paths
-	//var gridSize int = 3 //3X3 = 20 paths
-	var gridSize int = 20 //20X20 = 137846528820 paths
-	//var gridSize int = 70 //70X70 = 17130505608995310632 paths
-	//var gridSize int = 71 //71X71 - Exceeds max uint64 2^64 − 1 which equals 18,446,744,073,709,551,615
+	//gridSize := 1 //1X1 = 2 paths
+	//gridSize := 2 //2X2 = 6 paths
+	//gridSize := 3 //3X3 = 20 paths
+	gridSize := 20 //20X20 = 137846528820 paths
+	//gridSize := 70 //70X70 = 17130505608995310632 paths
+	//gridSize := 71 //71X71 - Exceeds max uint64 2^64 − 1 which equals 18,446,744,073,709,551,615
 	fmt.Println(fmt.Sprintf("gridSize: [%vx%v]", gridSize, gridSize))
 
 	easyAnswer := easyWay(gridSize)

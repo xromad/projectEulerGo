@@ -36,8 +36,8 @@ What is the value of this product?
 */
 
 func main() {
-	//var length int = 4 //5832 the provided example
-	var length int = 13 //23514624000 the provided question
+	//length := 4 //5832 the provided example
+	length := 13 //23514624000 the provided question
 	fmt.Println(fmt.Sprintf("Finding largest product of %v digits in the sequence", length))
 
 	digitsSlice, product := findLargestProduct(length, stringToInt64Slice(getStringLiteral()))

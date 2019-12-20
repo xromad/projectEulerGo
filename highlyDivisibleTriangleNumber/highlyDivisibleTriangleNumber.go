@@ -33,13 +33,13 @@ type TriangleNumber struct {
 }
 
 func main() {
-	//var divisorCount int = 5 //the given example
-	//var divisorCount int = 50
-	var divisorCount int = 100 //0:0:0.1
-	//var divisorCount int = 200 //0:0:14.7
-	//var divisorCount int = 300 //0:0:16.2
-	//var divisorCount int = 400 //0:6:26.8
-	//var divisorCount int = 500 // the given goal //0:57:14.3
+	//divisorCount := 5 //the given example
+	//divisorCount := 50
+	divisorCount := 100 //0:0:0.1
+	//divisorCount := 200 //0:0:14.7
+	//divisorCount := 300 //0:0:16.2
+	//divisorCount := 400 //0:6:26.8
+	//divisorCount := 500 // the given goal //0:57:14.3
 
 	fmt.Println(fmt.Sprintf("Find Triangle number with %v divisors", divisorCount))
 	divisors, triangleNumber := getTriangleNumber(divisorCount)

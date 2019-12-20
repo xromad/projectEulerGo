@@ -19,8 +19,8 @@ import (
 )
 
 func main() {
-	//var max int = 5 //provided example
-	var max int = 1000 //18551
+	//max := 5 //provided example
+	max := 1000 //18551
 	fmt.Println(fmt.Sprintf("calculating the words for numbers up to: %v", max))
 
 	words, count := processNums(max)

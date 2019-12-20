@@ -2,11 +2,10 @@ package main
 
 import (
 	"projectEuler/common/commonintutils"
-	"projectEuler/common/primesiev"
 	"testing"
 )
 
-func TestFindPrimesFrom(t *testing.T) {
+func TestFindNPrimes(t *testing.T) {
 	testCases := []struct {
 		primeCount int
 		want       []int64
@@ -18,9 +17,9 @@ func TestFindPrimesFrom(t *testing.T) {
 	}
 
 	for _, c := range testCases {
-		got := primesiev.FindPrimesFrom(c.primeCount, 2)
+		got := findNPrimes(c.primeCount)
 		if !commonintutils.Int64SliceEquals(got, c.want) {
-			t.Errorf("findEmirps(%v) == %v want %v", c.primeCount, got, c.want)
+			t.Errorf("findNPrimes(%v) == %v want %v", c.primeCount, got, c.want)
 		}
 	}
 }

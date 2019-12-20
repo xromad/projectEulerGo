@@ -32,7 +32,7 @@ func findSmallestMultiple(min int64, max int64) (product int64) {
 			fmt.Print(".")
 		}
 
-		var match bool = true
+		match := true
 		for i := min; i <= max; i++ {
 			if product%i != 0 {
 				match = false
