@@ -13,8 +13,12 @@ import (
 )
 
 func main() {
-	//var pow float64 = 15 //provided example
-	var pow float64 = 1000
+	//finalSum := powerDigitSum(float64(15)) //provided example
+	finalSum := powerDigitSum(float64(1000))
+	fmt.Println(fmt.Sprintf("sum: %v", finalSum))
+}
+
+func powerDigitSum(pow float64) int {
 	fmt.Println(fmt.Sprintf("finding sum of the digits of : 2^%v", pow))
 
 	result := math.Pow(2, pow)
@@ -23,8 +27,7 @@ func main() {
 	digits := getDigits(result)
 	fmt.Println(fmt.Sprintf("digits: %v", digits))
 
-	finalSum := commonintutils.SumIntSlice(digits)
-	fmt.Println(fmt.Sprintf("sum: %v", finalSum))
+	return commonintutils.SumIntSlice(digits)
 }
 
 func getDigits(num float64) (result []int) {

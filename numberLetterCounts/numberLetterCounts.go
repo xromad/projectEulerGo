@@ -19,13 +19,17 @@ import (
 )
 
 func main() {
-	//max := 5 //provided example
-	max := 1000 //18551
+	//getNumberLetterCounts(5) //provided example
+	getNumberLetterCounts(1000)
+}
+
+func getNumberLetterCounts(max int) (words string, count int) {
 	fmt.Println(fmt.Sprintf("calculating the words for numbers up to: %v", max))
 
-	words, count := processNums(max)
+	words, count = processNums(max)
 	fmt.Println(fmt.Sprintf("the words are: %s", words))
 	fmt.Println(fmt.Sprintf("the count of letters is: %v", count))
+	return
 }
 
 func processNums(max int) (words string, count int) {

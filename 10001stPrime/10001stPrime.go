@@ -11,13 +11,13 @@ import (
 )
 
 func main() {
-	primeCount := 10001
-	fmt.Println(fmt.Sprintf("Finding %dst prime:", primeCount))
-
-	primes := findNPrimes(primeCount)
-	fmt.Println(fmt.Sprintf("Largest %dst prime is %v", primeCount, primes[len(primes)-1]))
+	findNthPrime(10001)
 }
 
-func findNPrimes(primeCount int) []int64 {
-	return primesiev.FindPrimesFrom(primeCount, 2)
+func findNthPrime(primeCount int) []int64 {
+	fmt.Println(fmt.Sprintf("Finding %dst prime:", primeCount))
+
+	primes := primesiev.FindPrimesFrom(primeCount, 2)
+	fmt.Println(fmt.Sprintf("prime #%d is %v", primeCount, primes[len(primes)-1]))
+	return primes
 }

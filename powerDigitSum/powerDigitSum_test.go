@@ -5,6 +5,25 @@ import (
 	"testing"
 )
 
+func TestPowDigitSum(t *testing.T) {
+	testCases := []struct {
+		num  float64
+		want int
+	}{
+		//where
+		{0, 1},
+		{15, 26}, //provided example
+	}
+	for _, c := range testCases {
+		//when
+		got := powerDigitSum(c.num)
+		//then
+		if got != c.want {
+			t.Errorf("powDigitSum(%v) == %v want %v", c.num, got, c.want)
+		}
+	}
+}
+
 func TestGetDigits(t *testing.T) {
 	testCases := []struct {
 		num  float64
