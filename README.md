@@ -29,6 +29,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 16. powerDigitSum
 17. numberLetterCounts
 18. maximumPathSumI
+19. countingSundays
 67: maximumPathSumII
 
 ## Instructions
