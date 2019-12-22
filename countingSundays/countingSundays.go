@@ -25,6 +25,9 @@ import (
 func main() {
 	//How many sundays in the 20th century
 	countSundays("Jan-01-1901", "Dec-31-2000")
+
+	//How many days on first of Month in 20th century
+	//TODO: this is the actual problem previous commit was just to get used to the time package
 }
 
 func countSundays(startDate string, endDate string) (sundays int) {
