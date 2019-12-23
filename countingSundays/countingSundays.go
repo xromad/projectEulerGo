@@ -23,16 +23,48 @@ import (
 )
 
 func main() {
+	startDate := "Jan-01-1901"
+	endDate := "Dec-31-2000"
+
 	//How many sundays in the 20th century
-	countSundays("Jan-01-1901", "Dec-31-2000")
+	countSundays(startDate, endDate)
 
 	//How many days on first of Month in 20th century
-	//TODO: this is the actual problem previous commit was just to get used to the time package
+	//TODO: this is the actual problem previous function was just to get used to the time package
+	fmt.Println("")
+	countFirstSundays(startDate, endDate)
+}
+
+func countFirstSundays(startDate string, endDate string) (count int) {
+	fmt.Println(fmt.Sprintf("approximate should be 1 or 2/year or around %v", 150))
+	start, end := getDateTimes(startDate, endDate)
+	fmt.Println(fmt.Sprintf("counting Sundays from %s to %s", start.UTC(), end.UTC()))
+
+	//find out what day of week we are starting on
+	dayOfWeekFormat := "Monday"
+	startWeekDay := start.Format(dayOfWeekFormat)
+
+	var newStart time.Time
+	if startWeekDay != "Sunday" {
+		//add days to adjust the start date to first Sunday (makes the math easy)
+		newStart = start.Add(time.Hour * 24 * time.Duration(daysToSunday(startWeekDay)))
+	}
+
+	for newStart.Before(end) {
+		weekDay := newStart.Format(dayOfWeekFormat)
+		if weekDay == "Sunday" && newStart.Day() == 1 {
+			count++
+		}
+		//add 7 days for next Sunday
+		newStart = newStart.Add(time.Hour * 24 * 7)
+	}
+	fmt.Println(fmt.Sprintf("%v 1st of month Sundays between %s and %s", count, startDate, endDate))
+	return
 }
 
 func countSundays(startDate string, endDate string) (sundays int) {
 	//reference date for layout Mon Jan 2 15:04:05 -0700 MST 2006
-	fmt.Println(fmt.Sprintf("approximate should be 52/year %v", 52*100))
+	fmt.Println(fmt.Sprintf("approximate should be 52/year or around %v", 52*100))
 
 	start, end := getDateTimes(startDate, endDate)
 	fmt.Println(fmt.Sprintf("counting Sundays from %s to %s", start.UTC(), end.UTC()))
@@ -43,13 +75,9 @@ func countSundays(startDate string, endDate string) (sundays int) {
 
 	//add days to adjust the start date to first Sunday (makes the math easy)
 	newStart := start.Add(time.Hour * 24 * time.Duration(daysToSunday(day)))
-	fmt.Println(fmt.Sprintf("adjusting to first Sunday which is: %s %s", newStart.Format(dayOfWeekFormat), newStart.UTC()))
-
-	//get the duration in Days
-	durationDays := end.Sub(newStart).Hours() / 24
-	fmt.Println(fmt.Sprintf("duration in days: %v", durationDays))
 
 	//get how many sundays
+	durationDays := end.Sub(newStart).Hours() / 24
 	sundays = int(durationDays / 7)
 	fmt.Println(fmt.Sprintf("%v Sundays between %s and %s", sundays, startDate, endDate))
 

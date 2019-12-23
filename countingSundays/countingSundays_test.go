@@ -23,6 +23,25 @@ func TestCountSundays(t *testing.T) {
 	}
 }
 
+func TestCountFirstSundays(t *testing.T) {
+	testCases := []struct {
+		startDate string
+		endDate   string
+		want      int
+	}{
+		//where
+		{"Jan-01-1901", "Dec-31-1901", 2},
+	}
+	for _, c := range testCases {
+		//when
+		got := countFirstSundays(c.startDate, c.endDate)
+		//then
+		if got != c.want {
+			t.Errorf("countSundays(%s, %s) == %v want %v", c.startDate, c.endDate, got, c.want)
+		}
+	}
+}
+
 func TestDaysToSunday(t *testing.T) {
 	testCases := []struct {
 		day  string
