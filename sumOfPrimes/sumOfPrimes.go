@@ -11,16 +11,11 @@ import (
 )
 
 func main() {
-	//var max int64 = 10
-	var max int64 = 2000000
-
-	fmt.Println(fmt.Sprintf("Finding the sum of primes below %v:", max))
-
-	sum := getSumOfPrimes(max)
-	fmt.Println(fmt.Sprintf("sum of primes = %v", sum))
+	getSumOfPrimes(2000000)
 }
 
 func getSumOfPrimes(max int64) (sumOfPrimes int64) {
+	fmt.Println(fmt.Sprintf("Finding the sum of primes below %v:", max))
 	if max == 0 {
 		return 0
 	}
@@ -33,5 +28,6 @@ func getSumOfPrimes(max int64) (sumOfPrimes int64) {
 		prime = primes[len(primes)-1]
 	}
 
+	fmt.Println(fmt.Sprintf("sum of primes = %v", sumOfPrimes))
 	return sumOfPrimes
 }

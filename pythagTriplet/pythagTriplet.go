@@ -21,38 +21,37 @@ func main() {
 	//var targetSum int64 = 30
 	var targetSum int64 = 1000
 
-	fmt.Println(fmt.Sprintf("Finding Pythagorean triplet where a + b + c = %v", targetSum))
-	digitsSlice := getPythagTripletEqN(targetSum)
-	if commonintutils.SumInt64Slice(digitsSlice) != 0 {
-		sumOfDigits := commonintutils.SumInt64Slice(digitsSlice)
-		fmt.Println(fmt.Sprintf(
-			"%v^2+%v^2=%v^2",
-			digitsSlice[0],
-			digitsSlice[1],
-			digitsSlice[2],
-		))
-		fmt.Println(fmt.Sprintf(
-			"%v+%v+%v=%v",
-			digitsSlice[0],
-			digitsSlice[1],
-			digitsSlice[2],
-			sumOfDigits,
-		))
-	} else {
-		fmt.Println("Not found!")
-	}
+	getPythagTripletEqN(targetSum)
 }
 
 func getPythagTripletEqN(targetSum int64) (digitSlice []int64) {
+	fmt.Println(fmt.Sprintf("Finding Pythagorean triplet where a + b + c = %v", targetSum))
 	digitSlice = []int64{1, 1, 1}
 
 	for {
 		switch {
 		//if a is greater than target then no need to continue
 		case digitSlice[0] == 0:
+			fmt.Println("Not found!")
 			return []int64{0, 0, 0}
 		//found our solution
 		case commonintutils.SumInt64Slice(digitSlice) == targetSum:
+			if commonintutils.SumInt64Slice(digitSlice) != 0 {
+				sumOfDigits := commonintutils.SumInt64Slice(digitSlice)
+				fmt.Println(fmt.Sprintf(
+					"%v^2+%v^2=%v^2",
+					digitSlice[0],
+					digitSlice[1],
+					digitSlice[2],
+				))
+				fmt.Println(fmt.Sprintf(
+					"%v+%v+%v=%v",
+					digitSlice[0],
+					digitSlice[1],
+					digitSlice[2],
+					sumOfDigits,
+				))
+			}
 			return digitSlice
 		//keep looking
 		default:

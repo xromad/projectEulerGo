@@ -13,21 +13,12 @@ import (
 )
 
 func main() {
-	// 100 is the smallest 3 digit number
-	var min int64 = 100
-	// 999 is the largest 3 digit number
-	var max int64 = 999
-
-	fmt.Println(fmt.Sprintf("Finding palendromic product of two numberes between: %v and %v",
-		min,
-		max,
-	))
-
-	first, second, product := findLargestProduct(min, max)
-	fmt.Println(fmt.Sprintf("Largest palendrome product: %v*%v=%v", first, second, product))
+	//smallest 3 digit is 100, largest 3 digit is 999
+	findLargestProduct(100, 999)
 }
 
 func findLargestProduct(min int64, max int64) (lowestFactor int64, highestFactor int64, largestPalendrome int64) {
+	fmt.Println(fmt.Sprintf("Finding palendromic product of two numberes between: %v and %v", min, max))
 	lowestFactor = min
 	highestFactor = max
 
@@ -44,5 +35,6 @@ func findLargestProduct(min int64, max int64) (lowestFactor int64, highestFactor
 			}
 		}
 	}
+	fmt.Println(fmt.Sprintf("Largest palendrome product: %v*%v=%v", lowestFactor, highestFactor, largestPalendrome))
 	return
 }

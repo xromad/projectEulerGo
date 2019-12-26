@@ -33,24 +33,16 @@ type TriangleNumber struct {
 }
 
 func main() {
-	//divisorCount := 5 //the given example
-	//divisorCount := 50
-	divisorCount := 100 //0:0:0.1
-	//divisorCount := 200 //0:0:14.7
-	//divisorCount := 300 //0:0:16.2
-	//divisorCount := 400 //0:6:26.8
-	//divisorCount := 500 // the given goal //0:57:14.3
-
-	fmt.Println(fmt.Sprintf("Find Triangle number with %v divisors", divisorCount))
-	divisors, triangleNumber := getTriangleNumber(divisorCount)
-	fmt.Println(fmt.Sprintf("divisors: %v, triangle number: %v:", divisors, triangleNumber.value))
+	getTriangleNumber(500)
 }
 
 func getTriangleNumber(divisorCount int) (divisors []int64, t TriangleNumber) {
+	fmt.Println(fmt.Sprintf("Find Triangle number with %v divisors", divisorCount))
 	for len(divisors) <= divisorCount {
 		t = getNextTriangle(t)
 		divisors = getFactors(t.value)
 	}
+	fmt.Println(fmt.Sprintf("divisors: %v, triangle number: %v:", divisors, t.value))
 	return
 }
 
