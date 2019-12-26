@@ -3,6 +3,7 @@ package commonintutils
 
 import (
 	"fmt"
+	"math/big"
 	"strconv"
 )
 
@@ -99,8 +100,33 @@ func F64toa(num float64) string {
 }
 
 /*
+ * big utils
+ */
+
+//BigFactoral - comput the factoral of something larger than int64
+func BigFactoral(num int64) (product *big.Int) {
+	//largest value this can handle is 25 before it blows through the int64
+	product = big.NewInt(1)
+	for i := int64(1); i <= num; i++ {
+		num := big.NewInt(i)
+		product.Mul(product, num)
+	}
+	return product
+}
+
+/*
  * int64 utils
  */
+
+//Factoral - compute the factoral of a number
+func Factoral(num int64) int64 {
+	//largest value this can handle is 25 before it blows through the int64
+	product := int64(1)
+	for i := int64(1); i <= num; i++ {
+		product = product * i
+	}
+	return product
+}
 
 // I64toA - convert int64 number to string
 func I64toA(num int64) string {

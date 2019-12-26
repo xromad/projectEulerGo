@@ -30,6 +30,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 17. numberLetterCounts
 18. maximumPathSumI
 19. countingSundays
+20. factoralDigitSum
 
 67: maximumPathSumII
 

@@ -1,6 +1,7 @@
 package commonintutils
 
 import (
+	"math/big"
 	"projectEuler/common/commonstringutils"
 	"testing"
 )
@@ -59,6 +60,48 @@ func TestI64ToA(t *testing.T) {
 		got := I64toA(c.num)
 		if got != c.want {
 			t.Errorf("I64toA(%v) == %s, want %s", c.num, got, c.want)
+		}
+	}
+}
+
+func TestFactoral(t *testing.T) {
+	testCases := []struct {
+		n    int64
+		want int64
+	}{
+		{2, 2},
+		{3, 6},
+		{4, 24},
+		{20, 2432902008176640000}, //largest input value this function can handle
+	}
+
+	for _, c := range testCases {
+		got := Factoral(c.n)
+		if got != c.want {
+			t.Errorf("Factoral(%v) == %v, want %v", c.n, got, c.want)
+		}
+	}
+}
+
+func TestBigFactoral(t *testing.T) {
+
+	big25, _ := new(big.Int).SetString("15511210043330985984000000", 10)
+	big26, _ := new(big.Int).SetString("403291461126605635584000000", 10)
+
+	testCases := []struct {
+		n    int64
+		want *big.Int
+	}{
+		{2, big.NewInt(2)},
+		{4, big.NewInt(24)},
+		{25, big25},
+		{26, big26},
+	}
+
+	for _, c := range testCases {
+		got := BigFactoral(c.n)
+		if got.Cmp(c.want) != 0 {
+			t.Errorf("Factoral(%v) == %v, want %v", c.n, got.String(), c.want.String())
 		}
 	}
 }
