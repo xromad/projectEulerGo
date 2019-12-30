@@ -19,11 +19,11 @@ func main() {
 	getAmicableNumbersSum(10000)
 }
 
-func getAmicableNumbersSum(n int64) (sum int64) {
-	fmt.Println(fmt.Sprintf("Calculating Amicable Numbers Sum For: %v", n))
-	amicableNumbers := getAmicableNumbers(n)
+func getAmicableNumbersSum(largestNumber int64) (sum int64) {
+	fmt.Println(fmt.Sprintf("Calculating Amicable Numbers Sum For: %v", largestNumber))
+	amicableNumbers := getAmicableNumbers(largestNumber)
 	sum = commonintutils.SumInt64Slice(amicableNumbers)
-	fmt.Println(fmt.Sprintf("Factoral Digit Sum For: %v = %v", n, sum))
+	fmt.Println(fmt.Sprintf("Factoral Digit Sum For: %v = %v", largestNumber, sum))
 	return
 }
 
