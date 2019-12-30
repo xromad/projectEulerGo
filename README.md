@@ -31,6 +31,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 18. maximumPathSumI
 19. countingSundays
 20. factoralDigitSum
+21. amicableNumbers
 
 67: maximumPathSumII
 
