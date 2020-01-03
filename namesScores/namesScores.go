@@ -42,7 +42,8 @@ func getNamesScore(fileName string) (scoreTotal int64) {
 
 func getTotalScore(names []string) (totalScore int64) {
 	for index, name := range names {
-		totalScore += getScoreForName(int64(index), name)
+		thisScore := getScoreForName(int64(index+1), name)
+		totalScore += thisScore
 	}
 	return
 }
@@ -65,7 +66,7 @@ func getAlphaValue(name string) (alphaValue int64) {
 
 func getAlpha(char string) (num int64) {
 	origin := byte('A') - 1
-	charNum := byte(char[0])
+	charNum := byte(strings.ToUpper(char)[0])
 	num = int64(charNum - origin)
 	return
 }

@@ -1,103 +1,129 @@
 package main
 
 import (
-	"projectEuler/common/commonintutils"
 	"testing"
 )
 
-func TestMaxPath(t *testing.T) {
+func TestGetNamesScore(t *testing.T) {
 	//given
-	tree, _ := makeTree(true)
-
 	testCases := []struct {
-		want uint
+		fileName string
+		want     int64
 	}{
 		//where
-		{23}, // the provided example
+		{"p022_names.txt", 871198282},
 	}
 	for _, c := range testCases {
 		//when
-		got := checkTree(tree)
+		got := getNamesScore(c.fileName)
 		//then
 		if got != c.want {
-			t.Errorf("checkTree(%v) == %v want %v", tree, got, c.want)
+			t.Errorf("getNamesScore(%s) == %v want %v", c.fileName, got, c.want)
 		}
 	}
 }
 
-func TestGetNodes(t *testing.T) {
+func TestGetTotalScore(t *testing.T) {
 	//given
-	tree, _ := makeTree(true)
-
 	testCases := []struct {
-		want []uint
+		names []string
+		want  int64
 	}{
 		//where
-		{[]uint{3, 7, 4, 9}},
+		{[]string{"\"A\"", "\"A\"", "\"A\""}, 6},
+		{[]string{"\"AA\"", "\"AA\"", "\"AA\""}, 12},
+		{[]string{"\"B\"", "\"B\"", "\"B\""}, 12},
+		{[]string{"\"BB\"", "\"BB\"", "\"BB\""}, 24},
+		{[]string{"\"A\"", "\"B\"", "\"C\""}, 14},
+		{[]string{"\"a\"", "\"b\"", "\"c\""}, 14},
+		{[]string{"\"Aa\"", "\"Bb\"", "\"Cc\""}, 28},
+		{[]string{"\"Jenny\"", "\"Brent\""}, 186},
 	}
 	for _, c := range testCases {
 		//when
-		got := getNodes(tree)
+		got := getTotalScore(c.names)
 		//then
-		if commonintutils.UIntSliceEquals(got, c.want) {
-			t.Errorf("sumNodes(%v) == %v want %v", tree, got, c.want)
+		if got != c.want {
+			t.Errorf("getTotalScore(%v) == %v want %v", c.names, got, c.want)
 		}
 	}
 }
 
-func TestMakeTree(t *testing.T) {
+func TestGetScoreForName(t *testing.T) {
+	//given
 	testCases := []struct {
-		sample   bool
-		wantVal  uint
-		wantRows uint
+		name  string
+		index int64
+		want  int64
 	}{
 		//where
-		{true, 3, 4},
-		{false, 59, 100},
+		{"\"A\"", 1, 1},
+		{"\"AA\"", 2, 4},
+		{"\"B\"", 1, 2},
+		{"\"B\"", 2, 4},
+		{"\"B\"", 3, 6},
+		{"\"Z\"", 1, 26},
+		{"\"z\"", 10, 260},
+		{"\"Brent\"", 10, 590},
+		{"\"Jenny\"", 10, 680},
 	}
-
 	for _, c := range testCases {
 		//when
-		gotTree, gotRows := makeTree(c.sample)
+		got := getScoreForName(c.index, c.name)
 		//then
-		if gotTree.value != c.wantVal {
-			t.Errorf("makeTree(%v) == %v value want %v ", c.sample, gotTree.value, c.wantVal)
-		}
-		//and
-		if gotRows != c.wantRows {
-			t.Errorf("makeTree(%v) == %v rows want %v ", c.sample, gotRows, c.wantRows)
+		if got != c.want {
+			t.Errorf("getScoreForName(%v, %s) == %v want %v", c.index, c.name, got, c.want)
 		}
 	}
 }
 
-func TestParseTree(t *testing.T) {
+func TestGetAlpha(t *testing.T) {
+	//given
 	testCases := []struct {
-		filenName string
-		wantLeft  uint
-		wantRight uint
-		wantRows  uint
+		character string
+		want      int64
 	}{
 		//where
-		{"sampleTriangle.txt", 7, 4, 4},
-		{"p067_triangle.txt", 73, 41, 100},
+		{"A", 1},
+		{"a", 1},
+		{"Z", 26},
+		{"z", 26},
 	}
-
 	for _, c := range testCases {
 		//when
-		tree, rows := parseTree(c.filenName)
+		got := getAlpha(c.character)
 		//then
-		gotLeft := tree.left.value
-		if gotLeft != c.wantLeft {
-			t.Errorf("makeExampleTree(%s) == %v, left == %v want %v in ", c.filenName, tree, gotLeft, c.wantLeft)
+		if got != c.want {
+			t.Errorf("getAlpha(%s) == %v want %v", c.character, got, c.want)
+		}
+	}
+}
+
+func TestParseFile(t *testing.T) {
+	//given
+	testCases := []struct {
+		fileName  string
+		arraySize int
+		firstName string
+		lastName  string
+	}{
+		//where
+		{"p022_names.txt", 5163, "\"MARY\"", "\"ALONSO\""}, // the provided example
+	}
+	for _, c := range testCases {
+		//when
+		got := parseFile(c.fileName)
+		//then
+		if len(got) != c.arraySize {
+			t.Errorf("parseFile(%v): arraySize = %v want %v", c.fileName, len(got), c.arraySize)
 		}
 		//and
-		gotRight := tree.right.value
-		if gotRight != c.wantRight {
-			t.Errorf("makeExampleTree(%s) == %v, right == %v want %v in ", c.filenName, tree, gotRight, c.wantRight)
+		if got[0] != c.firstName {
+			t.Errorf("parseFile(%v): firstName == %v want %v", c.fileName, got[0], c.firstName)
 		}
 		//and
-		if rows != c.wantRows {
-			t.Errorf("makeExampleTree(%s) == %v, rows == %v want %v in ", c.filenName, tree, rows, c.wantRows)
+		if got[len(got)-1] != c.lastName {
+			t.Errorf("parseFile(%v): firstName == %v want %v", c.fileName, got[len(got)-1], c.lastName)
 		}
 	}
 }

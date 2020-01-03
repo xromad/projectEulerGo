@@ -24,18 +24,21 @@ func TestGetSum(t *testing.T) {
 }
 
 func TestGetEvens(t *testing.T) {
+	//given
 	testCases := []struct {
 		fibSlice []int64
 		want     []int64
 	}{
+		//where
 		{[]int64{}, []int64{}},
 		{[]int64{1}, []int64{}},
 		{[]int64{1, 2, 3}, []int64{2}},
 		{[]int64{1, 2, 3, 5, 8}, []int64{2, 8}},
 	}
-
 	for _, c := range testCases {
+		//when
 		got := getEvens(c.fibSlice)
+		//then
 		if !commonintutils.Int64SliceEquals(got, c.want) {
 			t.Errorf("genSequence(%v) == %v, want %v", c.fibSlice, got, c.want)
 		}
