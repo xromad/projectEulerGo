@@ -33,6 +33,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 20. factoralDigitSum
 21. amicableNumbers
 22. namesScores
+23. nonAbundantSums
 
 67: maximumPathSumII
 
