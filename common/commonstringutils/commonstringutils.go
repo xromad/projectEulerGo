@@ -17,7 +17,7 @@ func ReverseString(s string) string {
 
 // StringSliceCompare - tests to see if the two string slices are the same
 func StringSliceCompare(s1 []string, s2 []string) bool {
-	if StringHasVals(s1, s2) {
+	if StringHasVals(s1, s2) && StringHasVals(s2, s1) {
 		return true
 	}
 	return false
