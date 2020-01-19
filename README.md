@@ -34,6 +34,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 21. amicableNumbers
 22. namesScores
 23. nonAbundantSums
+24. lexicographicalPermutations
 
 67: maximumPathSumII
 
