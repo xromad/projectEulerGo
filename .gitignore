@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+# ide specific files
+.vscode/
+
 # Test binary, built with `go test -c`
 *.test
 
