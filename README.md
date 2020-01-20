@@ -35,6 +35,7 @@ The collection of my answers to Project Euler https://projecteuler.net/archives 
 22. namesScores
 23. nonAbundantSums
 24. lexicographicalPermutations
+25. thousandDigitFibonacciNumber
 
 67: maximumPathSumII
 
